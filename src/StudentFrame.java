@@ -133,10 +133,10 @@ public class StudentFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel7))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addComponent(jTextField4)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(207, 207, 207)
                         .addComponent(jLabel2)))
@@ -189,9 +189,9 @@ public class StudentFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3304/universitydb","root","5&krza7-/ost");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitydb","root","5&krza7-/ost");
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("Select *from Teacher where id="+jTextField1.getText());
+            ResultSet rs = stmt.executeQuery("Select *from student where id="+jTextField1.getText());
             if(rs.next())
             {
                 String name = rs.getString("name");
