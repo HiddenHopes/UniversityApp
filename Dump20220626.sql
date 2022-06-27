@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: universitydb
+-- Host: 127.0.0.1    Database: manager_db
 -- ------------------------------------------------------
--- Server version	8.0.25
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,54 +16,55 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `student`
+-- Table structure for table `login_table`
 --
 
-DROP TABLE IF EXISTS `student`;
+DROP TABLE IF EXISTS `login_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `student` (
-  `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `dept` varchar(10) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `login_table` (
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `mobile` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `mobile_UNIQUE` (`mobile`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student`
+-- Dumping data for table `login_table`
 --
 
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1001,'Mr. A','cse','abc1@abc.com'),(1002,'Mr. B','eee','abc2@abc.com');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
+LOCK TABLES `login_table` WRITE;
+/*!40000 ALTER TABLE `login_table` DISABLE KEYS */;
+INSERT INTO `login_table` VALUES ('shaad','shaad@gmail.com','01632586420','1234');
+/*!40000 ALTER TABLE `login_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `teacher`
+-- Table structure for table `meal_entry`
 --
 
-DROP TABLE IF EXISTS `teacher`;
+DROP TABLE IF EXISTS `meal_entry`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `teacher` (
-  `id` int NOT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `meal_entry` (
+  `date` varchar(45) NOT NULL,
+  `name` varchar(10) DEFAULT NULL,
+  `new_username` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `teacher`
+-- Dumping data for table `meal_entry`
 --
 
-LOCK TABLES `teacher` WRITE;
-/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-INSERT INTO `teacher` VALUES (1,'Mr. X','abc@abc.com'),(2,'Mr. Y','xyz@abc.com');
-/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
+LOCK TABLES `meal_entry` WRITE;
+/*!40000 ALTER TABLE `meal_entry` DISABLE KEYS */;
+/*!40000 ALTER TABLE `meal_entry` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -75,4 +76,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-19 13:49:21
+-- Dump completed on 2022-06-26 23:06:56
