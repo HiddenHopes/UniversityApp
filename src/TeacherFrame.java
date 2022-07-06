@@ -154,16 +154,16 @@ public class TeacherFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-           Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/universitydb", "root", "root");
+           Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/univarsitydb", "root", "tmm8660");
            Statement stmt = connection.createStatement();
            ResultSet rs = stmt.executeQuery("Select * from Teacher where id="+jTextField1.getText());
            if(rs.next()){
-               String name = rs.getString("name");
-               String email = rs.getString("email");
+               String name = rs.getString("Name");
+               String email = rs.getString("Email");
                jTextField2.setText(name);
                jTextField3.setText(email);
            }
-        } catch (Exception e) {
+        } catch (Exception e){
             e.printStackTrace();
         }
         
